@@ -616,7 +616,10 @@ public:
 			if (u != v) {
 #ifdef PRINT_PERSISTENCE_PAIRS
 				if (get_diameter(e) != 0)
+				{
+					std::cout << "FORMAT: 0   0" << get_diameter(e) << std::endl;
 					std::cout << " [0," << get_diameter(e) << ")" << std::endl;
+				}
 #endif
 				dset.link(u, v);
 			} else if (get_index(get_zero_apparent_cofacet(e, 1)) == -1)
@@ -775,7 +778,8 @@ public:
 #ifdef INDICATE_PROGRESS
 							std::cerr << clear_line << std::flush;
 #endif
-							std::cout << " [" << diameter << "," << death << ")" << std::endl;
+                            std::cout << " [" << diameter << "," << death << ")" << std::endl;
+							std::cout << "FORMAT: " << dim << "   " << diameter << "   " << death << std::endl;
 						}
 #endif
 						pivot_column_index.insert({get_entry(pivot), index_column_to_reduce});
@@ -794,6 +798,7 @@ public:
 					std::cerr << clear_line << std::flush;
 #endif
 					std::cout << " [" << diameter << ", )" << std::endl;
+					std::cout << "FORMAT: " << dim << "   " << diameter << std::endl;
 #endif
 					break;
 				}
