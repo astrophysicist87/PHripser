@@ -617,7 +617,7 @@ public:
 #ifdef PRINT_PERSISTENCE_PAIRS
 				if (get_diameter(e) != 0)
 				{
-					std::cout << "FORMAT: 0   0" << get_diameter(e) << std::endl;
+					std::cout << "FORMAT: 0   0   " << get_diameter(e) << std::endl;
 					std::cout << " [0," << get_diameter(e) << ")" << std::endl;
 				}
 #endif
