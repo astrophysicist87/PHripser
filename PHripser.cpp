@@ -609,6 +609,10 @@ public:
 		std::sort(edges.rbegin(), edges.rend(),
 		          greater_diameter_or_smaller_index<diameter_index_t>);
 		std::vector<index_t> vertices_of_edge(2);
+		//std::vector<std::vector<diameter_index_t> >
+		//	cluster_vector( edges.size(), std::vector<diameter_index_t>(1) ) 
+		//for (int iEdge = 0; iEdge < edges.size(); iEdge++)
+		//	cluster_vector[iEdge][0] = edge[iEdge];
 		for (auto e : edges) {
 			get_simplex_vertices(get_index(e), 1, n, vertices_of_edge.rbegin());
 			index_t u = dset.find(vertices_of_edge[0]), v = dset.find(vertices_of_edge[1]);
@@ -617,6 +621,8 @@ public:
 #ifdef PRINT_PERSISTENCE_PAIRS
 				if (get_diameter(e) != 0)
 				{
+					std::cout << "n = " << n << std::endl;
+					std::cout << "edges.size() = " << edges.size() << std::endl;
 					std::cout << "FORMAT: 0   0   " << get_diameter(e) << std::endl;
 					std::cout << " [0," << get_diameter(e) << ")" << std::endl;
 				}
