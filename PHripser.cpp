@@ -599,7 +599,7 @@ public:
 
 	index_t find_cluster( std::vector<std::vector<index_t> > & cluster_vector, index_t i )
 	{
-		for ( index_t j = 0; j < cluster_vector.size(); j++ )
+		for ( index_t j = 0; j < (index_t)cluster_vector.size(); j++ )
 			if ( std::count(cluster_vector[j].begin(), cluster_vector[j].end(), i) )
 				return j;
 		std::cerr << "Error: failed to find cluster " << i << " in cluster vector"
@@ -613,7 +613,7 @@ public:
 		cluster_vector[i].insert( cluster_vector[i].end(),
 								  cluster_vector[j].begin(),
 								  cluster_vector[j].end() );
-		cluster_vector.erase(myvector.begin()+j);
+		cluster_vector.erase( cluster_vector.begin()+j );
 		return;
 	}
 
@@ -637,7 +637,7 @@ public:
 		std::sort(edges.rbegin(), edges.rend(),
 		          greater_diameter_or_smaller_index<diameter_index_t>);
 		std::vector<index_t> vertices_of_edge(2);
-		std::vector<std::vector<index_t> > cluster_vector( n, std::vector<index_t>(1) ) 
+		std::vector<std::vector<index_t> > cluster_vector( n, std::vector<index_t>(1) );
 		for (index_t i = 0; i < n; ++i)
 			cluster_vector[i][0] = i;
 		print_cluster_multiplicities( cluster_vector );
