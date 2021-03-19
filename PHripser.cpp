@@ -649,10 +649,10 @@ public:
 #ifdef PRINT_PERSISTENCE_PAIRS
 				if (get_diameter(e) != 0)
 				{
-					//index_t uCluster = find_cluster( cluster_vector, u );
-					//index_t vCluster = find_cluster( cluster_vector, v );
-					index_t uCluster = find_cluster( cluster_vector, vertices_of_edge[0] );
-					index_t vCluster = find_cluster( cluster_vector, vertices_of_edge[1] );
+					index_t uCluster = find_cluster( cluster_vector, u );
+					index_t vCluster = find_cluster( cluster_vector, v );
+					//index_t uCluster = find_cluster( cluster_vector, vertices_of_edge[0] );
+					//index_t vCluster = find_cluster( cluster_vector, vertices_of_edge[1] );
 					merge_clusters( cluster_vector, uCluster, vCluster );
 					print_cluster_multiplicities( cluster_vector );
 					std::cout << "FORMAT: 0   0   " << get_diameter(e) << std::endl;
