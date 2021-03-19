@@ -597,6 +597,34 @@ public:
 #endif
 	}
 
+	index_t find_cluster( std::vector<std::vector<index_t> > & cluster_vector, index_t i )
+	{
+		for ( index_t j = 0; j < cluster_vector.size(); j++ )
+			if ( std::count(cluster_vector[j].begin(), cluster_vector[j].end(), i) )
+				return j;
+		std::cerr << "Error: failed to find cluster " << i << " in cluster vector"
+				  << " of size " << cluster_vector.size() << std::endl;
+		return (-1);
+	}
+
+	void merge_clusters( std::vector<std::vector<index_t> > & cluster_vector,
+						 index_t i, index_t j )
+	{
+		cluster_vector[i].insert( cluster_vector[i].end(),
+								  cluster_vector[j].begin(),
+								  cluster_vector[j].end() );
+		cluster_vector.erase(myvector.begin()+j);
+		return;
+	}
+
+	void print_cluster_multiplicities( std::vector<std::vector<index_t> > & cluster_vector )
+	{
+		std::cout << "Multiplicities:";
+		for (auto cluster : cluster_vector) std::cout << "  " << cluster.size();
+		std::cout << std::endl;
+		return;
+	}
+
 	void compute_dim_0_pairs(std::vector<diameter_index_t>& edges,
 	                         std::vector<diameter_index_t>& columns_to_reduce) {
 #ifdef PRINT_PERSISTENCE_PAIRS
@@ -609,10 +637,10 @@ public:
 		std::sort(edges.rbegin(), edges.rend(),
 		          greater_diameter_or_smaller_index<diameter_index_t>);
 		std::vector<index_t> vertices_of_edge(2);
-		//std::vector<std::vector<diameter_index_t> >
-		//	cluster_vector( edges.size(), std::vector<diameter_index_t>(1) ) 
-		//for (int iEdge = 0; iEdge < edges.size(); iEdge++)
-		//	cluster_vector[iEdge][0] = edge[iEdge];
+		std::vector<std::vector<index_t> > cluster_vector( n, std::vector<index_t>(1) ) 
+		for (index_t i = 0; i < n; ++i)
+			cluster_vector[i][0] = i;
+		print_cluster_multiplicities( cluster_vector );
 		for (auto e : edges) {
 			get_simplex_vertices(get_index(e), 1, n, vertices_of_edge.rbegin());
 			index_t u = dset.find(vertices_of_edge[0]), v = dset.find(vertices_of_edge[1]);
@@ -621,8 +649,12 @@ public:
 #ifdef PRINT_PERSISTENCE_PAIRS
 				if (get_diameter(e) != 0)
 				{
-					std::cout << "n = " << n << std::endl;
-					std::cout << "edges.size() = " << edges.size() << std::endl;
+					//std::cout << "n = " << n << std::endl;
+					//std::cout << "edges.size() = " << edges.size() << std::endl;
+					index_t uCluster = find_cluster( cluster_vector, u );
+					index_t vCluster = find_cluster( cluster_vector, v );
+					merge_clusters( cluster_vector, uCluster, vCluster );
+					print_cluster_multiplicities( cluster_vector );
 					std::cout << "FORMAT: 0   0   " << get_diameter(e) << std::endl;
 					std::cout << " [0," << get_diameter(e) << ")" << std::endl;
 				}
