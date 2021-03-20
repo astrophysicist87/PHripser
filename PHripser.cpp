@@ -625,6 +625,20 @@ public:
 		return;
 	}
 
+	double get_cluster_entropy( std::vector<std::vector<index_t> > & cluster_vector, index_t n )
+	{
+		double total = 0.0, num = 0.0, den = 0.0;
+		for (index_t i = 1; i <= n; i++)
+			den += log( (double)i );
+		for (auto cluster : cluster_vector)
+		{
+			for (index_t i = 1; i <= cluster.size(); i++)
+				num += log( (double)i );
+			total += num / den;
+		}
+		return (total);
+	}
+
 	void compute_dim_0_pairs(std::vector<diameter_index_t>& edges,
 	                         std::vector<diameter_index_t>& columns_to_reduce) {
 #ifdef PRINT_PERSISTENCE_PAIRS
@@ -655,7 +669,8 @@ public:
 					//index_t vCluster = find_cluster( cluster_vector, vertices_of_edge[1] );
 					merge_clusters( cluster_vector, uCluster, vCluster );
 					print_cluster_multiplicities( cluster_vector );
-					std::cout << "FORMAT: 0   0   " << get_diameter(e) << std::endl;
+					std::cout << "FORMAT: 0   0   " << get_diameter(e) << "   "
+							  << get_cluster_entropy( cluster_vector, n ) << std::endl;
 					std::cout << " [0," << get_diameter(e) << ")" << std::endl;
 				}
 #endif
