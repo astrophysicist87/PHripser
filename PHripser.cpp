@@ -627,11 +627,12 @@ public:
 
 	double get_cluster_entropy( std::vector<std::vector<index_t> > & cluster_vector, index_t n )
 	{
-		double total = 0.0, num = 0.0, den = 0.0;
+		double total = 0.0, den = 0.0;
 		for (index_t i = 1; i <= n; i++)
 			den += log( (double)i );
 		for (auto cluster : cluster_vector)
 		{
+			double num = 0.0;
 			for (index_t i = 1; i <= (index_t)cluster.size(); i++)
 				num += log( (double)i );
 			total += num / den;
