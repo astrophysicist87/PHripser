@@ -656,6 +656,8 @@ public:
 		for (index_t i = 0; i < n; ++i)
 			cluster_vector[i][0] = i;
 		print_cluster_multiplicities( cluster_vector );
+		std::cout << "FORMAT: 0   0   0   "
+				  << get_cluster_entropy( cluster_vector, n ) << std::endl;
 		for (auto e : edges) {
 			get_simplex_vertices(get_index(e), 1, n, vertices_of_edge.rbegin());
 			index_t u = dset.find(vertices_of_edge[0]), v = dset.find(vertices_of_edge[1]);
