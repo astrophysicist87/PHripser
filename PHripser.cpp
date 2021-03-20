@@ -632,7 +632,7 @@ public:
 			den += log( (double)i );
 		for (auto cluster : cluster_vector)
 		{
-			for (index_t i = 1; i <= cluster.size(); i++)
+			for (index_t i = 1; i <= (index_t)cluster.size(); i++)
 				num += log( (double)i );
 			total += num / den;
 		}
