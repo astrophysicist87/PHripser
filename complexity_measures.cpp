@@ -62,6 +62,7 @@ int main(int argc, char** argv)
 			double birth = 0.0, death = 0.0;
 			istringstream iss(line);
 			iss >> birth >> death;
+			if ( abs(death-birth) < 1e-10 ) continue;
 			birth_radii.push_back( birth );
 			death_radii.push_back( death );
 		}
