@@ -7,8 +7,8 @@
 
 using namespace std;
 
-void compute_PD( const vector<double & birth_radii, const vector<double & death_radii,
-				 const vector<double & pVec, vector<double & PD )
+void compute_PD( const vector<double> & birth_radii, const vector<double> & death_radii,
+				 const vector<double> & pVec, vector<double> & PD )
 {
 	PD.clear();
 	for ( double p : pVec )
@@ -21,7 +21,7 @@ void compute_PD( const vector<double & birth_radii, const vector<double & death_
 	return;
 }
 
-double get_SD( const vector<double & birth_radii, const vector<double & death_radii )
+double get_SD( const vector<double> & birth_radii, const vector<double> & death_radii )
 {
 	double SD = 0.0;
 	for ( int iPair = 0; iPair < birth_radii.size(); iPair++ )
@@ -29,7 +29,7 @@ double get_SD( const vector<double & birth_radii, const vector<double & death_ra
 	return ( SD );
 }
 
-double get_ED( const vector<double & birth_radii, const vector<double & death_radii )
+double get_ED( const vector<double> & birth_radii, const vector<double> & death_radii )
 {
 	double SD = get_SD( birth_radii, death_radii );
 	double ED = 0.0;
