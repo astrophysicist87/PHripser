@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 	vector<double> pVec;
 	for ( double p = 0.1; p <= 10.0+1e-10; p += 0.1 ) pVec.push_back( p );
 
-	vector<double> birth_radii, death_radii;
+	vector<double> PD, birth_radii, death_radii;
 
 	// read path to input file from command line
 	string path_to_file = string(argv[1]);
@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 	compute_PD( birth_radii, death_radii, pVec, PD );
 
 	// complexity measure #2
-	double ED = compute_ED( birth_radii, death_radii );
+	double ED = get_ED( birth_radii, death_radii );
 
 	cout << "ED: " << ED << endl;
 	for (int ip = 0; ip < pVec.size(); ip++)
