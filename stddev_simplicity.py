@@ -6,7 +6,7 @@ def get_filenames(file):
         for line in a_file:
             yield line.strip()
 
-if len(sys.argv) > 2:
+if len(sys.argv) > 3:
     outfilename = sys.argv[1]
     data = np.array([np.loadtxt(file, usecols=(1,2,3,4,5,6)) for file in sys.argv[2:]])
     #data = np.array([np.loadtxt(file) for file in sys.argv[2:]])
