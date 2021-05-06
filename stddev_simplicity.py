@@ -9,12 +9,13 @@ def get_filenames(file):
 if len(sys.argv) > 2:
     outfilename = sys.argv[1]
     data = np.array([np.loadtxt(file, usecols=(1,2,3,4,5,6)) for file in sys.argv[2:]])
-    data = np.mean(data, axis=0)
+    #data = np.array([np.loadtxt(file) for file in sys.argv[2:]])
+    #print(data.shape)
+    data = np.std(data, axis=0)
     np.savetxt(outfilename, data)
 else:
     outfilename = sys.argv[1]
     data = np.array([np.loadtxt(file, usecols=(1,2,3,4,5,6)) for file in get_filenames(sys.argv[2])])
-    data = np.mean(data, axis=0)
+    data = np.std(data, axis=0)
     np.savetxt(outfilename, data)
 
-            
