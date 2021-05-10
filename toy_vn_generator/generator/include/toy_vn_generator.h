@@ -42,7 +42,7 @@ namespace flow_generator
 
 	bool print_randomly_generated_data     = false;
 
-	bool include_psi2_PTslope_fluctuations = true;
+	bool include_psi2_PTslope_fluctuations = false;
 
 	string resultsDirectory                = "./results/";
 	string output_name                     = resultsDirectory + "/data.dat";
