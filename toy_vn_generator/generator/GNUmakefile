@@ -41,7 +41,7 @@ INSTPATH			=	..
 
 # --------------- Pattern rules -------------------
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	-@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -74,7 +74,7 @@ install:	$(TARGET)
 	cp $(TARGET) $(INSTPATH)
 
 # --------------- Dependencies -------------------
-$(SRCDIR)/pair_particle_vn.cc: $(INCDIR)/toy_vn_generator.h \
+$(SRCDIR)/toy_vn_generator.cpp: $(INCDIR)/toy_vn_generator.h \
                                $(INCDIR)/sampled_distribution.h
 
 
