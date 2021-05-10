@@ -120,7 +120,7 @@ namespace flow_generator
 	
 			//double v2 = v2_distribution(generator);
 			double v2 = 0.25;
-			double psi2 = psi2_distribution(generator);
+			double psi2 = 0.0*psi2_distribution(generator);
 			double psi2_pTslope = fluctuation_switch_factor
 									* psi2_pTslope_distribution(generator);
 			

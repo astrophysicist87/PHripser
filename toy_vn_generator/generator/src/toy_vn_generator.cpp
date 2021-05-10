@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
 	cout << endl;
 	cout << "<<<======================================>>>" << endl;
 	cout << "<<<         BEGIN FLOW GENERATOR         >>>" << endl;
+	cout << "<<<======================================>>>" << endl;
+	cout << endl;
 
 	// if passing in filenames, process these
 	// adding some command line arguments to simplify things...
@@ -64,6 +66,7 @@ int main(int argc, char *argv[])
 	}
 
 	cout << endl;
+	cout << "<<<======================================>>>" << endl;
 	cout << "<<<          END FLOW GENERATOR          >>>" << endl;
 	cout << "<<<======================================>>>" << endl;
 
