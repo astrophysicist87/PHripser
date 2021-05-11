@@ -203,8 +203,9 @@ namespace flow_generator
 		// Dump simulated data to file if desired
 		if ( print_randomly_generated_data )
 		{
+			int n_zero = static_cast<int>( log10( N_particles_per_event*N_total_events ) );
 			string dataset_stem = ( dataset >= 0 ) ?
-									std::string(10 - dataset.length(), '0')
+									std::string(n_zero - dataset.length(), '0')
 									+ std::to_string( dataset ) : "";
 			string RNG_filename = resultsDirectory + "/dataset_" + dataset_stem + ".dat";
 			ofstream RNG_output( RNG_filename.c_str() );
