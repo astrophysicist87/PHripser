@@ -5,7 +5,7 @@
 #include <complex>
 #include <vector>
 #include <iomanip>
-#include <omp>
+#include <omp.h>
 #include <string>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_eigen.h>
