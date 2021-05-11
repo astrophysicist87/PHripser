@@ -204,8 +204,9 @@ namespace flow_generator
 		if ( print_randomly_generated_data )
 		{
 			string dataset_stem = ( dataset >= 0 ) ?
-									"_" + std::to_string( dataset ) : "";
-			string RNG_filename = resultsDirectory + "/dataset" + dataset_stem + ".dat";
+									std::string(10 - dataset.length(), '0')
+									+ std::to_string( dataset ) : "";
+			string RNG_filename = resultsDirectory + "/dataset_" + dataset_stem + ".dat";
 			ofstream RNG_output( RNG_filename.c_str() );
 			for ( auto & this_event : all_events )
 			for (int bin = 0; bin < n_pT; bin++)
