@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
 	flow_generator::print_randomly_generated_data = true;
 
 	// generate dataset(s) randomly
+	//#pragma omp parallel for
 	for (int iLoop = 0; iLoop < nLoops; iLoop++)
 	{
 		cout << "Loop " << iLoop + 1 << "/" << nLoops << endl;
