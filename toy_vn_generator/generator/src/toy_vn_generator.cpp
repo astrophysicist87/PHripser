@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	//flow_generator::eta_high               = 10.0;
 	// --------------------------
 	const int nLoops                       = 10;
-	const int n_events_per_loop            = 10;
+	const int n_events_per_loop            = 10000;
 	flow_generator::N_particles_per_event  = 100;
 	flow_generator::N_events_to_generate   = n_events_per_loop;
 	flow_generator::N_total_events         = nLoops*n_events_per_loop;
