@@ -119,7 +119,7 @@ namespace flow_generator
 		{
 	
 			//double v2 = v2_distribution(generator);
-			double v2 = 0.25;
+			double v2 = 0.0;
 			double psi2 = 0.0*psi2_distribution(generator);
 			double psi2_pTslope = fluctuation_switch_factor
 									* psi2_pTslope_distribution(generator);
@@ -203,7 +203,7 @@ namespace flow_generator
 		// Dump simulated data to file if desired
 		if ( print_randomly_generated_data )
 		{
-			int n_zero = static_cast<int>( log10( N_particles_per_event*N_total_events ) )+1;
+			int n_zero = static_cast<int>( log10( N_particles_per_event*N_total_events ) )-1;
 			string dataset_stem = ( dataset >= 0 ) ?
 									std::string(n_zero - std::to_string(dataset).length(), '0')
 									+ std::to_string( dataset ) : "";
