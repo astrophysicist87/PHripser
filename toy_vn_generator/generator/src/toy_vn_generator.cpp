@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	flow_generator::N_total_events         = nLoops*n_events_per_loop;
 	//flow_generator::N_total_events         = 100000;
 	// --------------------------
-	flow_generator::use_seed               = true;
+	flow_generator::use_seed               = false;
 	// --------------------------
 
 	// Start the calculation.
