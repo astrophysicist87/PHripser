@@ -48,8 +48,9 @@ int main(int argc, char *argv[])
 	flow_generator::resultsDirectory = argv[1];
 	flow_generator::output_name = flow_generator::resultsDirectory + "/data.dat";
 
-	flow_generator::include_psi2_PTslope_fluctuations
-			= bool(std::stoi(argv[2]));
+	//flow_generator::include_psi2_PTslope_fluctuations
+	//		= bool(std::stoi(argv[2]));
+	flow_generator::v2_magnitude = std::stof(argv[2]);
 
 	flow_generator::print_randomly_generated_data = true;
 

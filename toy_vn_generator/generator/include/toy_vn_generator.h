@@ -43,6 +43,7 @@ namespace flow_generator
 	bool print_randomly_generated_data     = false;
 
 	bool include_psi2_PTslope_fluctuations = false;
+	double v2_magnitude                    = 0.1;
 
 	string resultsDirectory                = "./results/";
 	string output_name                     = resultsDirectory + "/data.dat";
@@ -119,7 +120,7 @@ namespace flow_generator
 		{
 	
 			//double v2 = v2_distribution(generator);
-			double v2 = 0.0;
+			double v2 = v2_magnitude;
 			double psi2 = 0.0*psi2_distribution(generator);
 			double psi2_pTslope = fluctuation_switch_factor
 									* psi2_pTslope_distribution(generator);
