@@ -218,7 +218,8 @@ namespace flow_generator
 				const auto & this_pphi_bin = this_event.pphi_vec[bin];
 				const auto & this_eta_bin = this_event.eta_vec[bin];
 				for (int iParticle = 0; iParticle < n_particles_in_this_bin; iParticle++)
-					RNG_output /*<< this_pT_bin[iParticle] << "   "
+					RNG_output << setprecision(15) << setw(18)
+							   /*<< this_pT_bin[iParticle] << "   "
                                << this_eta_bin[iParticle] << "   "*/
                                << this_pphi_bin[iParticle] /*<< "   "
                                << this_event.eventID*/ << endl;
