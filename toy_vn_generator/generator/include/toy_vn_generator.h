@@ -26,7 +26,7 @@ namespace flow_generator
 	// ------------------------------------
 
 	int n_pT                               = 6;
-	double max_pT                          = 3.0;
+	double max_pT                          = 3000000.0;
 	double min_pT				           = 0.0;
 	int order                              = 2;
 	//double eta_low                         = 2.0;
@@ -138,7 +138,7 @@ namespace flow_generator
 								
 				// Sort into bins.
 				double pT = pT_value;
-				double eta = eta_distribution(generator);
+				double eta = 0.0*eta_distribution(generator);
 				double phi = pphi_value;
 				int event = iEvent;
 				

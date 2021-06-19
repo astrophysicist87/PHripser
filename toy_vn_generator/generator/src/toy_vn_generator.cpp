@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 	// --------------------------
 	// Define parameters for flow_generator.
 	// --------------------------
-	flow_generator::n_pT                   = 6;
-	flow_generator::max_pT                 = 3.0;
+	flow_generator::n_pT                   = 1;
+	flow_generator::max_pT                 = 300000000.0;
 	flow_generator::min_pT                 = 0.3;
 	flow_generator::order                  = 2;
 	//flow_generator::eta_low                = 2.0;

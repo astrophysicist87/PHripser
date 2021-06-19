@@ -652,9 +652,11 @@ public:
 		std::sort(edges.rbegin(), edges.rend(),
 		          greater_diameter_or_smaller_index<diameter_index_t>);
 		std::vector<index_t> vertices_of_edge(2);
+		// cluster_vector initially contains a list of n clusters, each with size 1
+		// each cluster contains a list of the point IDs it contains
 		std::vector<std::vector<index_t> > cluster_vector( n, std::vector<index_t>(1) );
 		for (index_t i = 0; i < n; ++i)
-			cluster_vector[i][0] = i;
+			cluster_vector[i][0] = i;	// assign 1 point ID to each cluster
 		print_cluster_multiplicities( cluster_vector );
 		std::cout << "FORMAT: 0   0   0   "
 				  << get_cluster_entropy( cluster_vector, n ) << std::endl;
